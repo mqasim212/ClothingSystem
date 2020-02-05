@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentBackOffice", "PaymentBackOffice\PaymentBackOffice.csproj", "{4BDB1587-D34E-43C3-94FD-92F6BFA0E020}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PaymentFrontOffice", "PaymentFrontOffice\", "{56CF3ACD-38E9-443B-8852-73DBDC3835FE}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_9691"
+		Debug.AspNetCompiler.PhysicalPath = "PaymentFrontOffice\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_9691\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_9691"
+		Release.AspNetCompiler.PhysicalPath = "PaymentFrontOffice\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_9691\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "9691"
+		SlnRelativePath = "PaymentFrontOffice\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentClasses", "PaymentClasses\PaymentClasses.csproj", "{306F6F3B-5F92-4268-AEAB-E607E7A23CE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payment Testing", "Payment Testing\Payment Testing.csproj", "{043861D0-9EE5-488E-95B6-903B089D202C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4BDB1587-D34E-43C3-94FD-92F6BFA0E020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BDB1587-D34E-43C3-94FD-92F6BFA0E020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BDB1587-D34E-43C3-94FD-92F6BFA0E020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BDB1587-D34E-43C3-94FD-92F6BFA0E020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56CF3ACD-38E9-443B-8852-73DBDC3835FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56CF3ACD-38E9-443B-8852-73DBDC3835FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56CF3ACD-38E9-443B-8852-73DBDC3835FE}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{56CF3ACD-38E9-443B-8852-73DBDC3835FE}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{306F6F3B-5F92-4268-AEAB-E607E7A23CE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{306F6F3B-5F92-4268-AEAB-E607E7A23CE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{306F6F3B-5F92-4268-AEAB-E607E7A23CE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{306F6F3B-5F92-4268-AEAB-E607E7A23CE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{043861D0-9EE5-488E-95B6-903B089D202C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{043861D0-9EE5-488E-95B6-903B089D202C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{043861D0-9EE5-488E-95B6-903B089D202C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{043861D0-9EE5-488E-95B6-903B089D202C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C934A67-0A21-4B7A-9E76-624CBA191759}
+	EndGlobalSection
+EndGlobal
