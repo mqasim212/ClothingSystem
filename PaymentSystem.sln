@@ -8,6 +8,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PaymentFrontOffice", "PaymentFrontOffice\", "{56CF3ACD-38E9-443B-8852-73DBDC3835FE}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		ProjectReferences = "{306f6f3b-5f92-4268-aeab-e607e7a23ce0}|PaymentClasses.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_9691"
 		Debug.AspNetCompiler.PhysicalPath = "PaymentFrontOffice\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_9691\"
@@ -30,8 +31,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentClasses", "PaymentClasses\PaymentClasses.csproj", "{306F6F3B-5F92-4268-AEAB-E607E7A23CE0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payment Testing", "Payment Testing\Payment Testing.csproj", "{043861D0-9EE5-488E-95B6-903B089D202C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{19F34F44-7171-4B4C-886C-8EB59D19F36D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
