@@ -24,7 +24,7 @@ public partial class AnPayment : System.Web.UI.Page
         //capture the total cost
         AnPayment.TotalCost = Convert.ToInt32(txtTotalCost.Text);
         //capture the status ID
-        AnPayment.StatusID = Convert.ToBoolean(chkStatusID.Text);
+        AnPayment.StatusID = Convert.ToBoolean(chkStatusID.Checked);
         //store the date in the session object
         Session["AnPayment"] = AnPayment;
         //redirect to the viewer page
