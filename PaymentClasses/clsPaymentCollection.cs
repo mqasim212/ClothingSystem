@@ -4,8 +4,46 @@ namespace PaymentClasses
 {
     public class clsPaymentCollection
     {
-        public List<clsPayment> PaymentList { get; set; }
-        public int Count { get; set; }
+       //private data member for the list
+        List<clsPayment> mPaymentList = new List<clsPayment>();
+     
         public clsPayment ThisPayment { get; set; }
+
+
+        //public property for the payment list
+        public List<clsPayment> PaymentList
+        {
+            get
+            {
+                //return the private data
+                return mPaymentList;
+            }
+
+            set
+            {
+                //set the private data
+                mPaymentList = value;
+            }
+        }
+        public int Count
+        {
+            get
+            {
+                //return the count of the list
+                return mPaymentList.Count;
+            }
+            set
+            {
+                //we shall worry about this later
+            }
+        }
+
+
     }
+
+ 
+   
+      
+  
+
 }
