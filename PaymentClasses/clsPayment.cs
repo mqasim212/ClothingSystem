@@ -9,5 +9,6 @@ namespace PaymentClasses
         public int OrderID { get; set; }
         public bool StatusID { get; set; }
         public int TotalCost { get; set; }
+        public int PaymentID { get; set; }
     }
 }
