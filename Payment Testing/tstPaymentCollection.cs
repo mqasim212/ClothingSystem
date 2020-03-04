@@ -94,5 +94,14 @@ namespace Payment_Testing
             //test to see that the two values are the same
             Assert.AreEqual(AllPayments.Count, TestList.Count);
         }
+        [TestMethod]
+        public void TwoRecordsPresent()
+        {
+            //create an instance of the class we want to create
+            clsPaymentCollection AllPayments = new clsPaymentCollection();
+            //test to see that the two values are the same
+            Assert.AreEqual(AllPayments.Count, 2);
+        }
+        
     }
 }
