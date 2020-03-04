@@ -9,6 +9,8 @@ namespace PaymentClasses
      
         public clsPayment ThisPayment { get; set; }
 
+        //constructor for the class
+
 
         //public property for the payment list
         public List<clsPayment> PaymentList
@@ -37,8 +39,6 @@ namespace PaymentClasses
                 //we shall worry about this later
             }
         }
-
-
     }
 
  
