@@ -17,6 +17,19 @@ namespace Payment_Testing
         }
 
         [TestMethod]
+        public void PaymentIDPropertyOK()
+        {
+            //create an instance of the class we want to create
+            clsPayment AnPayment = new clsPayment();
+            //create some test data to assign to the property
+            Int32 TestData = 1;
+            //assign the data to the property
+            AnPayment.PaymentID = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AnPayment.PaymentID, TestData);
+        }
+
+        [TestMethod]
         public void ActivePropertyOK()
         {
             //create an instance of the class we want to create
@@ -28,6 +41,7 @@ namespace Payment_Testing
             //test to see that the two values are the same
             Assert.AreEqual(AnPayment.Active, TestData);
         }
+
         [TestMethod]
         public void DatePropertyOK()
         {

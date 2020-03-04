@@ -28,6 +28,7 @@ namespace Payment_Testing
             //create the item of test data
             clsPayment TestItem = new clsPayment();
             //set its properties
+            TestItem.PaymentID = 1;
             TestItem.Active = true;
             TestItem.OrderID = 1;
             TestItem.Date = DateTime.Now.Date;
@@ -46,7 +47,7 @@ namespace Payment_Testing
             //create and instance of the class we want to create
             clsPaymentCollection AllPayments = new clsPaymentCollection();
             //create some test data to assign to the property
-            Int32 SomeCount = 0;
+            Int32 SomeCount = 10;
             //assign the data to the property
             AllPayments.Count = SomeCount;
             //test to see the two values are the same
@@ -60,6 +61,7 @@ namespace Payment_Testing
             //create some test data to assign to the property
             clsPayment TestPayment = new clsPayment();
             //set the properties of the test object
+            TestPayment.PaymentID = 1;
             TestPayment.Active = true;
             TestPayment.OrderID = 1;
             TestPayment.Date = DateTime.Now.Date;
@@ -82,6 +84,7 @@ namespace Payment_Testing
             //create the item of test data
             clsPayment TestItem = new clsPayment();
             //set its properties
+            TestItem.PaymentID = 1;
             TestItem.Active = true;
             TestItem.OrderID = 1;
             TestItem.Date = DateTime.Now.Date;
@@ -94,14 +97,14 @@ namespace Payment_Testing
             //test to see that the two values are the same
             Assert.AreEqual(AllPayments.Count, TestList.Count);
         }
-        [TestMethod]
-        public void TwoRecordsPresent()
-        {
-            //create an instance of the class we want to create
-            clsPaymentCollection AllPayments = new clsPaymentCollection();
-            //test to see that the two values are the same
-            Assert.AreEqual(AllPayments.Count, 2);
-        }
+        //[TestMethod]
+        //public void TwoRecordsPresent()
+        //{
+        //    //create an instance of the class we want to create
+        //    clsPaymentCollection AllPayments = new clsPaymentCollection();
+        //    //test to see that the two values are the same
+        //    Assert.AreEqual(AllPayments.Count, 2);
+        //}
         
     }
 }
