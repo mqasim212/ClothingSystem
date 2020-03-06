@@ -11,4 +11,6 @@ namespace PaymentClasses
         public int TotalCost { get; set; }
         public int PaymentID { get; set; }
     }
+
+    
 }

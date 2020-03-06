@@ -71,10 +71,4 @@ namespace PaymentClasses
             }
         }
     }
-
- 
-   
-      
-  
-
 }
