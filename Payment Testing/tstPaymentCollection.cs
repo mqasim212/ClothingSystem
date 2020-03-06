@@ -30,9 +30,9 @@ namespace Payment_Testing
             //set its properties
             TestItem.PaymentID = 1;
             TestItem.Active = true;
-            TestItem.OrderID = 1;
+            TestItem.OrderID = "1";
             TestItem.Date = DateTime.Now.Date;
-            TestItem.TotalCost = 2;
+            TestItem.TotalCost = "2";
             TestItem.StatusID = true;
             // add the item to the test list
             TestList.Add(TestItem);
@@ -63,9 +63,9 @@ namespace Payment_Testing
             //set the properties of the test object
             TestPayment.PaymentID = 1;
             TestPayment.Active = true;
-            TestPayment.OrderID = 1;
+            TestPayment.OrderID = "1";
             TestPayment.Date = DateTime.Now.Date;
-            TestPayment.TotalCost = 2;
+            TestPayment.TotalCost = "2";
             TestPayment.StatusID = true;
             //assign the data to the property
             AllPayments.ThisPayment = TestPayment;
@@ -86,9 +86,9 @@ namespace Payment_Testing
             //set its properties
             TestItem.PaymentID = 1;
             TestItem.Active = true;
-            TestItem.OrderID = 1;
+            TestItem.OrderID = "1";
             TestItem.Date = DateTime.Now.Date;
-            TestItem.TotalCost = 2;
+            TestItem.TotalCost = "2";
             TestItem.StatusID = true;
             //add the item to the test list
             TestList.Add(TestItem);
@@ -97,14 +97,35 @@ namespace Payment_Testing
             //test to see that the two values are the same
             Assert.AreEqual(AllPayments.Count, TestList.Count);
         }
-        //[TestMethod]
-        //public void TwoRecordsPresent()
-        //{
-        //    //create an instance of the class we want to create
-        //    clsPaymentCollection AllPayments = new clsPaymentCollection();
-        //    //test to see that the two values are the same
-        //    Assert.AreEqual(AllPayments.Count, 2);
-        //}
-        
-    }
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsPaymentCollection AllPayments = new clsPaymentCollection();
+            //create the item of test data
+            clsPayment TestItem = new clsPayment();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.PaymentID = 1;
+            TestItem.Active = true;
+            TestItem.OrderID = "1";
+            TestItem.Date = DateTime.Now.Date;
+            TestItem.TotalCost = "2";
+            TestItem.StatusID = true;
+            //set ThisPayment to the test data
+            AllPayments.ThisPayment = TestItem;
+            //add the record
+            PrimaryKey = AllPayments.Add();
+            //set the primary key of the test data
+            TestItem.PaymentID = PrimaryKey;
+            //find the record
+            AllPayments.ThisPayment.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Assert.AreEqual(AllPayments.ThisPayment, TestItem);
+        }
+    } 
 }
+
+
+

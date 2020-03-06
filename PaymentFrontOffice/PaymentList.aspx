@@ -15,7 +15,7 @@
         <asp:Button ID="btnApply" runat="server" style="z-index: 1; left: 77px; top: 402px; position: absolute; width: 95px;" Text="Apply" />
         <asp:Button ID="btnDisplayAll" runat="server" style="z-index: 1; left: 218px; top: 402px; position: absolute" Text="Display All" />
         <asp:TextBox ID="txtDate" runat="server" style="z-index: 1; left: 83px; top: 359px; position: absolute; width: 268px"></asp:TextBox>
-        <asp:Button ID="btnAdd" runat="server" style="z-index: 1; left: 78px; top: 462px; position: absolute; width: 82px" Text="Add" />
+        <asp:Button ID="btnAdd" runat="server" style="z-index: 1; left: 78px; top: 462px; position: absolute; width: 82px" Text="Add" OnClick="btnAdd_Click" />
         <asp:Button ID="btnDelete" runat="server" style="z-index: 1; left: 268px; top: 462px; position: absolute; width: 82px" Text="Delete" />
         <asp:Button ID="btnEdit" runat="server" style="z-index: 1; left: 183px; top: 458px; position: absolute; width: 67px; height: 33px" Text="Edit" />
     </form>

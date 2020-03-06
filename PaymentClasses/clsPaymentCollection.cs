@@ -7,8 +7,11 @@ namespace PaymentClasses
     {
        //private data member for the list
         List<clsPayment> mPaymentList = new List<clsPayment>();
-     
-        public clsPayment ThisPayment { get; set; }
+        //private data member thisPayment
+        clsPayment mThisPayment = new clsPayment();
+
+        //public clsPayment ThisPayment { get; set; }
+        
 
         //constructor for the class
         public clsPaymentCollection()
@@ -31,9 +34,9 @@ namespace PaymentClasses
                 //read in the fields from the current record
                 AnPayment.PaymentID = Convert.ToInt32(DB.DataTable.Rows[Index]["PaymentID"]);
                 AnPayment.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
-                AnPayment.OrderID = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderID"]);
+                AnPayment.OrderID = Convert.ToString(DB.DataTable.Rows[Index]["OrderID"]);
                 AnPayment.Date = Convert.ToDateTime(DB.DataTable.Rows[Index]["Date"]);
-                AnPayment.TotalCost = Convert.ToInt32(DB.DataTable.Rows[Index]["TotalCost"]);
+                AnPayment.TotalCost = Convert.ToString(DB.DataTable.Rows[Index]["TotalCost"]);
                 AnPayment.StatusID = Convert.ToBoolean(DB.DataTable.Rows[Index]["StatusID"]);
                 //add the record to the private data member
                 mPaymentList.Add(AnPayment);
@@ -70,11 +73,34 @@ namespace PaymentClasses
                 //we shall worry about this later
             }
         }
+        //public property for ThisPayment
+        public clsPayment ThisPayment
+        {
+            get
+            {
+                //return the private data
+                return mThisPayment;
+            }
+            set
+            {
+                //set the private data
+                mThisPayment = value;
+            }
+        }
+
+        public int Add()
+        {
+            //adds a new record to the database based on the values of thisPayment
+            //connects to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored proceedure
+            DB.AddParameter("@Active", mThisPayment.Active);
+            DB.AddParameter("@OrderID", mThisPayment.OrderID);
+            DB.AddParameter("@Date", mThisPayment.Date);
+            DB.AddParameter("@TotalCost", mThisPayment.TotalCost);
+            DB.AddParameter("@StatusID", mThisPayment.StatusID);
+            //execute the query returning the primary key value
+            return DB.Execute("sproc_tblPayment_Insert");
+        }
     }
-
- 
-   
-      
-  
-
 }
