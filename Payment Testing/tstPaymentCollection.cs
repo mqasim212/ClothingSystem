@@ -124,7 +124,74 @@ namespace Payment_Testing
             //test to see that the two values are the same
             Assert.AreEqual(AllPayments.ThisPayment, TestItem);
         }
-    } 
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsPaymentCollection AllPayments = new clsPaymentCollection();
+            //create the item of test data
+            clsPayment TestItem = new clsPayment();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.PaymentID = 1;
+            TestItem.Active = true;
+            TestItem.OrderID = "1";
+            TestItem.Date = DateTime.Now.Date;
+            TestItem.TotalCost = "2";
+            TestItem.StatusID = true;
+            //set ThisPayment to the test data
+            AllPayments.ThisPayment = TestItem;
+            //add the record
+            PrimaryKey = AllPayments.Add();
+            //set the primary key of the test data
+            TestItem.PaymentID = PrimaryKey;
+            //find the record
+            AllPayments.ThisPayment.Find(PrimaryKey);
+            //delete the record
+            AllPayments.Delete();
+            //now find the record
+            Boolean Found = AllPayments.ThisPayment.Find(PrimaryKey);
+            //test to see that the record was not found
+            Assert.IsFalse(Found);
+        }
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsPaymentCollection AllPayments = new clsPaymentCollection();
+            //create the item of test data
+            clsPayment TestItem = new clsPayment();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.Active = true;
+            TestItem.OrderID = "1";
+            TestItem.Date = DateTime.Now.Date;
+            TestItem.TotalCost = "2";
+            TestItem.StatusID = true;
+            //set ThisPayment to the test data
+            AllPayments.ThisPayment = TestItem;
+            //add the record
+            PrimaryKey = AllPayments.Add();
+            //set the primary key of the test data
+            TestItem.PaymentID = PrimaryKey;
+            //modify the test data
+            TestItem.Active = false;
+            TestItem.OrderID = "3";
+            TestItem.Date = DateTime.Now.Date;
+            TestItem.TotalCost = "5";
+            TestItem.StatusID = false;
+            //set te record based on the new test data
+            AllPayments.ThisPayment = TestItem;
+            //update the record
+            AllPayments.Update();
+            //find the record
+            AllPayments.ThisPayment.Find(PrimaryKey);
+            //test to see ThisPAyment matches the test data
+            Assert.AreEqual(AllPayments.ThisPayment, TestItem);
+        }
+    }
 }
 
 
