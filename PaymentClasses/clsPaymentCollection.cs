@@ -102,5 +102,32 @@ namespace PaymentClasses
             //execute the query returning the primary key value
             return DB.Execute("sproc_tblPayment_Insert");
         }
+
+        public void Delete()
+        {
+            //deletes the record pointed to by thisPayment
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored proceedure
+            DB.AddParameter("@PaymentID", mThisPayment.PaymentID);
+            //execute the stored proceedure
+            DB.Execute("sproc_tblPayment_Delete");
+        }
+
+        public void Update()
+        {
+            //update an exisitng record based on the values of ThisPayment
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored proceedure
+            DB.AddParameter("@PaymentID", mThisPayment.PaymentID);
+            DB.AddParameter("@Active", mThisPayment.Active);
+            DB.AddParameter("@OrderID", mThisPayment.OrderID);
+            DB.AddParameter("@Date", mThisPayment.Date);
+            DB.AddParameter("@TotalCost", mThisPayment.TotalCost);
+            DB.AddParameter("@StatusID", mThisPayment.StatusID);
+            //execute the stored proceedure
+            DB.Execute("sproc_tblPayment_Update");
+        }
     }
 }
