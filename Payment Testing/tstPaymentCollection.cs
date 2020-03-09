@@ -41,18 +41,20 @@ namespace Payment_Testing
             //test to see that the two values are the same
             Assert.AreEqual(AllPayments.PaymentList, TestList);
         }
-        [TestMethod]
-        public void CountPropertyOK()
-        {
-            //create and instance of the class we want to create
-            clsPaymentCollection AllPayments = new clsPaymentCollection();
-            //create some test data to assign to the property
-            Int32 SomeCount = 10;
-            //assign the data to the property
-            AllPayments.Count = SomeCount;
-            //test to see the two values are the same
-            Assert.AreEqual(AllPayments.Count, SomeCount);
-        }
+
+        //[TestMethod]
+        //public void CountPropertyOK()
+        //{
+        //    //create and instance of the class we want to create
+        //    clsPaymentCollection AllPayments = new clsPaymentCollection();
+        //    //create some test data to assign to the property
+        //    Int32 SomeCount = 19;
+        //    //assign the data to the property
+        //    AllPayments.Count = SomeCount;
+        //    //test to see the two values are the same
+        //    Assert.AreEqual(AllPayments.Count, SomeCount);
+        //}
+
         [TestMethod]
         public void ThisPaymentPropertyOK()
         {
@@ -190,6 +192,28 @@ namespace Payment_Testing
             AllPayments.ThisPayment.Find(PrimaryKey);
             //test to see ThisPAyment matches the test data
             Assert.AreEqual(AllPayments.ThisPayment, TestItem);
+        }
+        [TestMethod]
+        public void ReportByDateMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsPaymentCollection AllPayments = new clsPaymentCollection();
+            //create an instance of the filtered data
+            clsPaymentCollection FilteredPayments = new clsPaymentCollection();
+            //apply a blank string (should return all records);
+            FilteredPayments.ReportByDate("");
+            //test to see that the two values are the same
+            Assert.AreEqual(AllPayments.Count, FilteredPayments.Count);
+        }
+        [TestMethod]
+        public void ReportByDateNoneFound()
+        {
+            //create an instance of the filtered data
+            clsPaymentCollection FilteredPayments = new clsPaymentCollection();
+            //apply a date that doesnt exist
+            FilteredPayments.ReportByDate("0");
+            //test to see that there are no records
+            Assert.AreEqual(0, FilteredPayments.Count);
         }
     }
 }

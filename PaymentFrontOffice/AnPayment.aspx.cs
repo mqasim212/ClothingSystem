@@ -20,15 +20,30 @@ public partial class AnPayment : System.Web.UI.Page
         if (IsPostBack == false)
         {
             //populate the list of dates
-            DisplayCounties();
+            DisplayPayments();
+            //if this is not a new record
+            if (PaymentID!= -1)
+            {
+                //dispaky the current data for the record
+                DisplayPayments();
+            }
         }
-
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
-        //add the new record
-        Add();
+        if (PaymentID == -1)
+        {
+            //add the new record
+            Add();
+        }
+        else
+        {
+            //update the record
+            Update();
+        }
+    
+        
         //all done so redirect to the main page
         Response.Redirect("PaymentList.aspx");
         ////create a new instance of clsPayment
@@ -72,5 +87,50 @@ public partial class AnPayment : System.Web.UI.Page
             //report the error
             lblError.Text = "There were problems with the data entered " + Error;
         }
+
     }
+    //function for updating records
+    void Update()
+    {
+        //create an instance of the payment Book
+        clsPaymentCollection PaymentBook = new clsPaymentCollection();
+        //validate the data on the web form
+        String Error = PaymentBook.ThisPayment.Valid(txtOrderID.Text, txtTotalCost.Text);
+        //if the data is ok then add it to the object
+        if (Error == "")
+        {
+            //find the record to update
+            PaymentBook.ThisPayment.Find(PaymentID);
+            //get the data entered by the user
+            PaymentBook.ThisPayment.Active = Convert.ToBoolean(chkActive.Checked);
+            PaymentBook.ThisPayment.OrderID = txtOrderID.Text;
+            PaymentBook.ThisPayment.Date = Convert.ToDateTime(txtDate.Text);
+            PaymentBook.ThisPayment.TotalCost = txtTotalCost.Text;
+            PaymentBook.ThisPayment.StatusID = Convert.ToBoolean(chkStatusID.Checked);
+            //update the record
+            PaymentBook.Update();
+            //all done so redirect back to the main page
+            Response.Redirect("PaymentList.aspx");
+        }
+        else
+        {
+            //report an error
+            lblError.Text = "There were problems with the data entered " + Error;
+        }
+    }
+    void DisplayPayments()
+    {
+        //create an instance of the payment Book
+        clsPaymentCollection PaymentBook = new clsPaymentCollection();
+        //find the record to update
+        PaymentBook.ThisPayment.Find(PaymentID);
+        //display the data for this record
+        chkActive.Checked = PaymentBook.ThisPayment.Active;
+        txtOrderID.Text = PaymentBook.ThisPayment.OrderID;
+        txtDate.Text = PaymentBook.ThisPayment.Date.ToString();
+        txtTotalCost.Text = PaymentBook.ThisPayment.TotalCost;
+        chkStatusID.Checked = PaymentBook.ThisPayment.StatusID;
+
+    }
+    
 }
