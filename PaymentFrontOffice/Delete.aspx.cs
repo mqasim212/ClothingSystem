@@ -34,6 +34,11 @@ public partial class Delete : System.Web.UI.Page
         //delete the record
         DeletePayment();
         //redirect back to the main page
-        Response.Redirect("PaymentLlist.aspx");
+        Response.Redirect("PaymentList.aspx");
+    }
+
+    protected void btnNo_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("PaymentList.aspx");
     }
 }

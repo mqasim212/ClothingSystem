@@ -15,7 +15,7 @@
             <asp:Label ID="Label2" runat="server" style="z-index: 1; left: 68px; top: 71px; position: absolute" Text="Are you sure you want to delete this Payment?"></asp:Label>
         </p>
         <asp:Button ID="btnYes" runat="server" OnClick="btnYes_Click" style="z-index: 1; left: 80px; top: 116px; position: absolute; width: 59px" Text="Yes" />
-        <asp:Button ID="btnNo" runat="server" style="z-index: 1; left: 159px; top: 116px; position: absolute; width: 60px" Text="No" />
+        <asp:Button ID="btnNo" runat="server" style="z-index: 1; left: 159px; top: 116px; position: absolute; width: 60px" Text="No" OnClick="btnNo_Click" />
     </form>
 </body>
 </html>

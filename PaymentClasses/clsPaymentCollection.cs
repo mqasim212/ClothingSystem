@@ -129,5 +129,20 @@ namespace PaymentClasses
             //execute the stored proceedure
             DB.Execute("sproc_tblPayment_Update");
         }
+
+        public void ReportByDate(string Date)
+        {
+            //filters the records based on a full or partial Date
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //send the date parameter to the database
+            DB.AddParameter("@Date", Date);
+            //execute the stored proceedure
+            DB.Execute("sproc_tblPayment_FilterByDate");
+        }
+        void PopulateArray(clsDataConnection DB)
+        {
+            //populates the array list based on the table in the parameter DB
+        }
     }
 }
