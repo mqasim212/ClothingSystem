@@ -9,8 +9,19 @@ using System.Web.UI.WebControls;
 
 public partial class AnPayment : System.Web.UI.Page
 {
+    //variable to store the primary key with page level scope
+    Int32 PaymentID;
+
+    //event handler for the page load event
     protected void Page_Load(object sender, EventArgs e)
     {
+        //get the number of the payment to be processed
+        PaymentID = Convert.ToInt32(Session["PaymentID"]);
+        if (IsPostBack == false)
+        {
+            //populate the list of dates
+            DisplayCounties();
+        }
 
     }
 
