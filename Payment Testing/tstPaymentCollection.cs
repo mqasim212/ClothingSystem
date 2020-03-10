@@ -42,19 +42,6 @@ namespace Payment_Testing
             Assert.AreEqual(AllPayments.PaymentList, TestList);
         }
 
-        //[TestMethod]
-        //public void CountPropertyOK()
-        //{
-        //    //create and instance of the class we want to create
-        //    clsPaymentCollection AllPayments = new clsPaymentCollection();
-        //    //create some test data to assign to the property
-        //    Int32 SomeCount = 19;
-        //    //assign the data to the property
-        //    AllPayments.Count = SomeCount;
-        //    //test to see the two values are the same
-        //    Assert.AreEqual(AllPayments.Count, SomeCount);
-        //}
-
         [TestMethod]
         public void ThisPaymentPropertyOK()
         {
@@ -215,6 +202,39 @@ namespace Payment_Testing
             //test to see that there are no records
             Assert.AreEqual(0, FilteredPayments.Count);
         }
+
+
+        //************************************************************************//
+        //[TestMethod]
+        //public void ReportByDateTestDataFound()
+        //{
+        //    //create an instance of the filtered data
+        //    clsPaymentCollection FilteredPayments = new clsPaymentCollection();
+        //    //var to store the outcome
+        //    Boolean OK = true;
+        //    //apply a date that doesnt exist
+        //    FilteredPayments.ReportByDate("07/04/2004");
+        //    //check that the correct number of records are found
+        //    if (FilteredPayments.Count == 2)
+        //    {
+        //        //check that the first record is ID48 
+        //        if (FilteredPayments.PaymentList[0].PaymentID != 72)
+        //        {
+        //            OK = false;
+        //        }
+        //        //check that the first record is ID50
+        //        if (FilteredPayments.PaymentList[1].PaymentID != 73)
+        //        {
+        //            OK = false;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        OK = false;
+        //    }
+        //    //test to see that there are no records
+        //    Assert.IsTrue(OK);
+        //}
     }
 }
 

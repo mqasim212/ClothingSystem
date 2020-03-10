@@ -46,22 +46,7 @@ public partial class AnPayment : System.Web.UI.Page
         
         //all done so redirect to the main page
         Response.Redirect("PaymentList.aspx");
-        ////create a new instance of clsPayment
-        //clsPayment AnPayment = new clsPayment();
-        ////capture the Active
-        //AnPayment.Active = Convert.ToBoolean(chkActive.Text);
-        ////capture the Order ID
-        //AnPayment.OrderID = Convert.ToInt32(txtOrderID.Text);
-        ////capture the date
-        //AnPayment.Date = Convert.ToDateTime(txtDate.Text);
-        ////capture the total cost
-        //AnPayment.TotalCost = Convert.ToInt32(txtTotalCost.Text);
-        ////capture the status ID
-        //AnPayment.StatusID = Convert.ToBoolean(chkStatusID.Checked);
-        ////store the date in the session object
-        //Session["AnPayment"] = AnPayment;
-        ////redirect to the viewer page
-        //Response.Redirect("AnPaymentViewer.aspx");
+       
     }
     //function for adding new record
     void Add()
