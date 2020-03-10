@@ -16,33 +16,12 @@ namespace PaymentClasses
         //constructor for the class
         public clsPaymentCollection()
         {
-            //var for the index
-            Int32 Index = 0;
-            //var to store the record count
-            Int32 RecordCount = 0;
             //object for data connection
             clsDataConnection DB = new clsDataConnection();
             //execute the stored proceedure
             DB.Execute("sproc_tblPayment_SelectAll");
-            //get the count of records
-            RecordCount = DB.Count;
-            //while there are records to process
-            while (Index < RecordCount)
-            {
-                //create a blank payment
-                clsPayment AnPayment = new clsPayment();
-                //read in the fields from the current record
-                AnPayment.PaymentID = Convert.ToInt32(DB.DataTable.Rows[Index]["PaymentID"]);
-                AnPayment.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
-                AnPayment.OrderID = Convert.ToString(DB.DataTable.Rows[Index]["OrderID"]);
-                AnPayment.Date = Convert.ToDateTime(DB.DataTable.Rows[Index]["Date"]);
-                AnPayment.TotalCost = Convert.ToString(DB.DataTable.Rows[Index]["TotalCost"]);
-                AnPayment.StatusID = Convert.ToBoolean(DB.DataTable.Rows[Index]["StatusID"]);
-                //add the record to the private data member
-                mPaymentList.Add(AnPayment);
-                //point at the next record
-                Index++;
-            }
+            //populate the array list with the data table
+            PopulateArray(DB);
         }
 
 
@@ -139,10 +118,37 @@ namespace PaymentClasses
             DB.AddParameter("@Date", Date);
             //execute the stored proceedure
             DB.Execute("sproc_tblPayment_FilterByDate");
+            //populate the array list with the data table
+            PopulateArray(DB);
         }
         void PopulateArray(clsDataConnection DB)
         {
             //populates the array list based on the table in the parameter DB
+            //var for the index
+            Int32 Index = 0;
+            //var to store the record count
+            Int32 RecordCount;
+            //get the count of records
+            RecordCount = DB.Count;
+            //clear the private array list
+            mPaymentList = new List<clsPayment>();
+            //while there are records to process
+            while (Index < RecordCount)
+            {
+                //create a blank payment
+                clsPayment AnPayment = new clsPayment();
+                //read in the fields from the current record
+                AnPayment.PaymentID = Convert.ToInt32(DB.DataTable.Rows[Index]["PaymentID"]);
+                AnPayment.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
+                AnPayment.OrderID = Convert.ToString(DB.DataTable.Rows[Index]["OrderID"]);
+                AnPayment.Date = Convert.ToDateTime(DB.DataTable.Rows[Index]["Date"]);
+                AnPayment.TotalCost = Convert.ToString(DB.DataTable.Rows[Index]["TotalCost"]);
+                AnPayment.StatusID = Convert.ToBoolean(DB.DataTable.Rows[Index]["StatusID"]);
+                //add the record to the private data member
+                mPaymentList.Add(AnPayment);
+                //point at the next record
+                Index++;
+            }
         }
     }
 }
