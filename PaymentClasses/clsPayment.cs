@@ -23,7 +23,6 @@ namespace PaymentClasses
             string Error = "";
             return Error;
         }
+        
+        }
     }
-
-    
-}

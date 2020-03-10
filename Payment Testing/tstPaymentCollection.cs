@@ -204,37 +204,55 @@ namespace Payment_Testing
         }
 
 
-        //************************************************************************//
-        //[TestMethod]
-        //public void ReportByDateTestDataFound()
-        //{
-        //    //create an instance of the filtered data
-        //    clsPaymentCollection FilteredPayments = new clsPaymentCollection();
-        //    //var to store the outcome
-        //    Boolean OK = true;
-        //    //apply a date that doesnt exist
-        //    FilteredPayments.ReportByDate("07/04/2004");
-        //    //check that the correct number of records are found
-        //    if (FilteredPayments.Count == 2)
-        //    {
-        //        //check that the first record is ID48 
-        //        if (FilteredPayments.PaymentList[0].PaymentID != 72)
-        //        {
-        //            OK = false;
-        //        }
-        //        //check that the first record is ID50
-        //        if (FilteredPayments.PaymentList[1].PaymentID != 73)
-        //        {
-        //            OK = false;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        OK = false;
-        //    }
-        //    //test to see that there are no records
-        //    Assert.IsTrue(OK);
-        //}
+
+        [TestMethod]
+        public void ReportByDateTestDataFound()
+        {
+            //create an instance of the filtered data
+            clsPaymentCollection FilteredPayments = new clsPaymentCollection();
+            //var to store the outcome
+            Boolean OK = true;
+            //apply a date that doesnt exist
+
+            FilteredPayments.ReportByDate("2004-04-07");
+
+
+            //check that the correct number of records are found
+            if (FilteredPayments.Count == 2)
+            {
+                //check that the first record is ID48
+                if (FilteredPayments.PaymentList[0].PaymentID != 72)
+                {
+                    OK = false;
+                }
+                //check that the first record is ID50
+                if (FilteredPayments.PaymentList[1].PaymentID != 73)
+                {
+                    OK = false;
+                }
+                OK = true;
+            }
+            else
+            {
+                OK = false;
+            }
+            //test to see that there are no records
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsPayment AnPayment = new clsPayment();
+            //boolean variable to store the result of the validation
+            Boolean Found = false;
+            //create some test data to use with the method
+            Int32 PaymentID = 1;
+            //invoke the method
+            Found = AnPayment.Find(PaymentID);
+            //test to see that the result is true
+            Assert.IsTrue(Found);
+        }
     }
 }
 
