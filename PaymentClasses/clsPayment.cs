@@ -44,13 +44,72 @@ namespace PaymentClasses
             }
         }
 
-
-
-        public string Valid(string OrderID, string TotalCost)
+        public string Valid(string OrderID, string Date, string TotalCost)
         {
-            string Error = "";
+            //Create a string variable to store the error message
+            String Error = "";
+            //create a temporary variable to store the date values
+            DateTime DateTemp;
+            //if the OrderID is blank
+            if (OrderID.Length == 0)
+            {
+                //record the error
+                Error = Error + "The OrderID may not be blank : ";
+            }
+            //if the OrderID is 10 numbers or more
+            if (OrderID.Length > 10)
+            {
+                //record the error
+                Error = Error + "The OrderID may not be greater than 10 : ";
+            }
+
+            // **************************************************//
+            //if the OrderID is blank
+            if (TotalCost.Length == 0)
+            {
+                //record the error
+                Error = Error + "The TotalCost may not be blank : ";
+
+            }
+
+            //if the TotalCost is 10 numbers or more
+            if (TotalCost.Length > 10)
+            {
+                //record the error
+                Error = Error + "The TotalCost may not be greater than 10";
+
+            }
+
+            try
+            {
+
+                DateTemp = Convert.ToDateTime(Date);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    // record the error
+                    Error = Error + "The date Cannot be in the past : ";
+                }
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    // record the error
+                    Error = Error + "The date Cannot be in the past : ";
+                }
+            }
+            catch
+            {
+                // record the error
+                Error = Error + "the date cannot be in the future : ";
+            }
+            //return any error messages
             return Error;
         }
+            
+
+
+
+
+
+
         //public property for the paymentID
         public int PaymentID
         {
@@ -137,5 +196,10 @@ namespace PaymentClasses
                 mActive = value;
             }
         }
+
+        //public string Valid(string orderID, string totalCost, string date)
+        //{
+        //    return "";
+        //}
     }
 }
