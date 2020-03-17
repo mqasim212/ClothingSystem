@@ -190,7 +190,7 @@ namespace Payment_Testing
             //create an instance of the filtered data
             clsPaymentCollection FilteredPayments = new clsPaymentCollection();
             //apply a blank string (should return all records);
-            FilteredPayments.ReportByDate("0");
+            FilteredPayments.ReportByDate("");
             //test to see that the two values are the same
             Assert.AreEqual(AllPayments.Count, FilteredPayments.Count);
         }
@@ -381,8 +381,8 @@ namespace Payment_Testing
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
-
-    }
+        
+    }   
 }
 
 

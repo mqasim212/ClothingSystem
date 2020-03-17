@@ -19,8 +19,7 @@ public partial class AnPayment : System.Web.UI.Page
         PaymentID = Convert.ToInt32(Session["PaymentID"]);
         if (IsPostBack == false)
         {
-            //populate the list of dates
-            DisplayPayments();
+            
             //if this is not a new record
             if (PaymentID!= -1)
             {
@@ -54,7 +53,7 @@ public partial class AnPayment : System.Web.UI.Page
         //create an instance of the payment Book
         clsPaymentCollection PaymentBook = new clsPaymentCollection();
         //validate the data on the web form
-        String Error = PaymentBook.ThisPayment.Valid(txtOrderID.Text, txtTotalCost.Text);
+        String Error = PaymentBook.ThisPayment.Valid(txtOrderID.Text, txtDate.Text, txtTotalCost.Text);
         //if the data is ok then add it to the object
         if (Error =="")
         {
@@ -80,7 +79,7 @@ public partial class AnPayment : System.Web.UI.Page
         //create an instance of the payment Book
         clsPaymentCollection PaymentBook = new clsPaymentCollection();
         //validate the data on the web form
-        String Error = PaymentBook.ThisPayment.Valid(txtOrderID.Text, txtTotalCost.Text);
+        String Error = PaymentBook.ThisPayment.Valid(txtOrderID.Text, txtDate.Text, txtTotalCost.Text);
         //if the data is ok then add it to the object
         if (Error == "")
         {
