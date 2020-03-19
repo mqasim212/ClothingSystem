@@ -116,5 +116,11 @@ public partial class AnPayment : System.Web.UI.Page
         chkStatusID.Checked = PaymentBook.ThisPayment.StatusID;
 
     }
-    
+
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        //all done so redirect to the main page
+        Response.Redirect("PaymentList.aspx");
+    }
 }

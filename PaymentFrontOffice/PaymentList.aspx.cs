@@ -85,4 +85,42 @@ public partial class PaymentList : System.Web.UI.Page
         }
     }
 
+
+    protected void btnDisplayAll_Click(object sender, EventArgs e)
+    {
+        //display all dates
+        DisplayPaymentDates("");
+    }
+
+
+    Int32 DisplayPaymentDates (string DateFilter)
+    {
+        Int32 PaymentID; //var to store the primary key
+        DateTime Date; //vr to store the street       
+        //create an instance of the student collection class
+        clsPaymentCollection PaymentDates = new clsPaymentCollection();
+        PaymentDates.ReportByDate(DateFilter);
+        Int32 RecordCount; //var to store the count of records
+        Int32 Index = 0; //var to store the index for the loop
+        RecordCount = PaymentDates.Count; //get the count of records
+        //clear the list box
+        lstPayment.Items.Clear();
+        while (Index < RecordCount) //while there are records to process
+        {
+            PaymentID = PaymentDates.PaymentList[Index].PaymentID; //get the primary key
+            Date = PaymentDates.PaymentList[Index].Date; //get the student name
+            //create a new entry for the list box
+            ListItem NewEntry = new ListItem(Date + " " +  PaymentID.ToString());
+            lstPayment.Items.Add(NewEntry); //add the student to the list
+            Index++; //move the index to the next record
+        }
+        return RecordCount; //return the count of records found
+    }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        Int32 RecordCount;
+        RecordCount = DisplayPaymentDates(txtDate.Text);
+        lblError.Text = RecordCount + " Record Found"; 
+    }
 }
